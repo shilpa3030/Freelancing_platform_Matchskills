@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelanceHub — Hire talent. Build faster.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}" type="image/png">
+</head>
+<body class="site-body auth-checking">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom fixed-top">
+        <div class="container py-1">
+            <a class="navbar-brand font-heading" href="/">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" width="36" height="36" alt="FreelanceHub logo">
+                FreelanceHub
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto align-items-lg-center gap-lg-1">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">How it works</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#for-clients">For clients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#for-talent">For talent</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-2">
+                    <li class="nav-item" id="nav-guest-signin">
+                        <a class="nav-link fw-semibold" href="#" onclick="showLogin(); return false;">Sign in</a>
+                    </li>
+                    <li class="nav-item" id="nav-guest-cta">
+                        <a class="btn btn-cta-orange btn-sm px-3" href="#" onclick="showRegister(); return false;">Sign up</a>
+                    </li>
+                    <li class="nav-item d-none" id="nav-admin-console">
+                        <a class="btn btn-outline-fh btn-sm px-3" href="#" onclick="loadDashboard(); return false;">
+                            <i class="fas fa-shield-alt me-1"></i> Admin console
+                        </a>
+                    </li>
+                    <li class="nav-item d-none" id="nav-logout">
+                        <a class="nav-link text-danger fw-semibold" href="#" onclick="logout(); return false;">
+                            <i class="fas fa-sign-out-alt"></i> Log out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="main-content" class="pt-nav" style="padding-top: 76px; min-height: calc(100vh - 76px);">
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-gradient-bar mx-auto"></div>
+                <h1 class="font-heading fade-in">Where developers &amp; designers meet serious work</h1>
+                <p class="hero-lead fade-in">A clean, AI-assisted marketplace for digital professionals. Post projects or find curated opportunities—without the noise.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3 fade-in">
+                    <button type="button" class="btn btn-cta-hero btn-lg" onclick="showRegister()">
+                        <i class="fas fa-user-plus me-2"></i>Create free account
+                    </button>
+                    <button type="button" class="btn btn-cta-outline btn-lg" onclick="showLogin()">
+                        Sign in
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section bg-white border-top border-bottom" id="how-it-works">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <span class="badge-accent-orange">How it works</span>
+                    <h2 class="font-heading mt-3 mb-2">Three steps. One platform.</h2>
+                    <p class="text-secondary mx-auto mb-0" style="max-width:520px">Transparent briefs, smart matching, and escrow-backed delivery—built for trust.</p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="card card-custom p-4 text-center h-100">
+                            <div class="landing-step-num mb-3 mx-auto">1</div>
+                            <h3 class="h5 font-heading">Define the work</h3>
+                            <p class="text-secondary small mb-0">Clients post scope, stack, and budget. Freelancers see only relevant open roles.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-custom p-4 text-center h-100 border-warning border-opacity-25" style="border-width:2px!important;">
+                            <div class="landing-step-num landing-step-num--orange mb-3 mx-auto">2</div>
+                            <h3 class="h5 font-heading">Match &amp; bid</h3>
+                            <p class="text-secondary small mb-0">AI surfaces strong fits. Submit proposals with clear pricing and timelines.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-custom p-4 text-center h-100">
+                            <div class="landing-step-num mb-3 mx-auto">3</div>
+                            <h3 class="h5 font-heading">Ship with confidence</h3>
+                            <p class="text-secondary small mb-0">Escrow milestones, chat, and reviews keep everyone aligned until delivery.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section" id="for-clients">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 order-lg-2">
+                        <div class="landing-audience-card">
+                            <img class="landing-audience-illustration" src="{{ url_for('static', filename='img/audience-client.svg') }}" alt="" width="400" height="320" loading="lazy">
+                            <div class="card-body border-top">
+                                <span class="badge-accent-orange">For clients</span>
+                                <h2 class="font-heading h3 mt-3">Hire product-minded builders</h2>
+                                <p class="text-secondary">From UI polish to full-stack shipping—publish once, compare bids, and onboard the right specialist.</p>
+                                <button type="button" class="btn btn-cta-hero" onclick="showRegister()">Post a project</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <h2 class="font-heading display-6 mb-3">Your roadmap deserves velocity</h2>
+                        <p class="text-secondary lead fs-6 mb-4">FreelanceHub keeps hiring lightweight: structured postings, AI-ranked talent, and a dashboard to track every engagement.</p>
+                        <ul class="list-unstyled text-secondary small">
+                            <li class="mb-2"><i class="fas fa-check-circle text-fh-primary me-2"></i>Role-based dashboards—no clutter on the public site</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-fh-primary me-2"></i>Escrow-friendly workflow for milestones</li>
+                            <li class="mb-0"><i class="fas fa-check-circle text-fh-primary me-2"></i>Ratings that reflect real delivery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section bg-white border-top" id="for-talent">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <div class="landing-audience-card">
+                            <img class="landing-audience-illustration" src="{{ url_for('static', filename='img/audience-developer.svg') }}" alt="" width="400" height="320" loading="lazy">
+                            <div class="card-body border-top">
+                                <span class="badge-accent-orange">For talent</span>
+                                <h2 class="font-heading h3 mt-3">Work that fits your stack</h2>
+                                <p class="text-secondary">Developers, designers, and digital pros get AI-matched projects—so you spend less time searching.</p>
+                                <button type="button" class="btn btn-primary-custom" onclick="showRegister()">Join as freelancer</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h2 class="font-heading display-6 mb-3">Built for people who ship</h2>
+                        <p class="text-secondary lead fs-6 mb-4">Show your skills once, receive recommendations, and manage bids from a focused workspace.</p>
+                        <ul class="list-unstyled text-secondary small">
+                            <li class="mb-2"><i class="fas fa-bolt text-warning me-2"></i>TF‑IDF matching on your real profile</li>
+                            <li class="mb-2"><i class="fas fa-bolt text-warning me-2"></i>One profile for proposals &amp; reviews</li>
+                            <li class="mb-0"><i class="fas fa-bolt text-warning me-2"></i>Modern dashboard—only after you sign in</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="landing-section pb-5">
+            <div class="container">
+                <div class="card card-custom p-5 text-center border-0" style="background: linear-gradient(135deg, rgba(30,136,229,0.08) 0%, rgba(255,127,42,0.08) 100%);">
+                    <h2 class="font-heading h3 mb-3">Ready when you are</h2>
+                    <p class="text-secondary mb-4 mx-auto" style="max-width:480px">Create an account to open your dashboard. This page stays focused on the story—your tools live behind sign in.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <button type="button" class="btn btn-cta-hero btn-lg" onclick="showRegister()">Get started free</button>
+                        <button type="button" class="btn btn-cta-outline btn-lg" onclick="showLogin()">I already have an account</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <div class="col-md-4 text-center text-md-start">
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-2">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}" width="32" height="32" alt="FreelanceHub">
+                        <span class="font-heading fw-bold text-white">FreelanceHub</span>
+                    </div>
+                    <p class="small mb-0 opacity-75">Innovative. Professional. Built for digital work.</p>
+                </div>
+                <div class="col-md-4 text-center small">
+                    <a href="#how-it-works" class="d-inline-block mx-2">How it works</a>
+                    <a href="#for-clients" class="d-inline-block mx-2">Clients</a>
+                    <a href="#for-talent" class="d-inline-block mx-2">Talent</a>
+                </div>
+                <div class="col-md-4 text-center text-md-end small opacity-75">
+                    <p class="mb-1">&copy; 2026 FreelanceHub</p>
+                    <a href="#" class="me-3">Terms</a>
+                    <a href="#">Privacy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</body>
+</html>

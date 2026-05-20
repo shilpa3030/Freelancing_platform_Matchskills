@@ -1,0 +1,33 @@
+{% extends "layouts/base.html" %}
+{% block title %}{% block dashboard_title %}Client · FreelanceHub{% endblock %}{% endblock %}
+{% block body_class %}dashboard-body{% endblock %}
+{% block body %}
+<div class="dashboard-shell">
+    <button type="button" class="dash-mobile-toggle btn btn-light d-lg-none" id="dashMobileToggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+    </button>
+    {% include "dashboard/partials/client_sidebar.html" %}
+    <div class="dashboard-main">
+        <header class="dashboard-topbar">
+            <div>
+                <h1 class="dashboard-heading mb-0">{% block page_heading %}Dashboard{% endblock %}</h1>
+                <p class="dashboard-sub text-muted mb-0 small">{% block page_sub %}{% endblock %}</p>
+            </div>
+            <div class="d-flex align-items-center gap-2 flex-wrap">
+                <a href="{{ url_for('dashboard.client_profile') }}" class="btn btn-outline-fh btn-sm"><i class="fas fa-user me-1"></i> Profile</a>
+                <a href="{{ url_for('dashboard.client_messages') }}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-comments me-1"></i> Messages</a>
+                <a href="{{ url_for('dashboard.client_project_new') }}" class="btn btn-fh btn-sm"><i class="fas fa-plus me-1"></i> New project</a>
+            </div>
+        </header>
+        <div class="dashboard-scroll">
+            {% block dashboard_main %}{% endblock %}
+        </div>
+    </div>
+</div>
+<div class="dash-sidebar-backdrop d-lg-none" id="dashBackdrop"></div>
+{% endblock %}
+{% block scripts %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/dashboard-client.js') }}"></script>
+{% block dashboard_scripts %}{% endblock %}
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "dashboard/base_freelancer.html" %}
+{% block dashboard_title %}Freelancer overview · FreelanceHub{% endblock %}
+{% block page_heading %}Overview{% endblock %}
+{% block page_sub %}Your performance, bids, and AI-matched opportunities.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-lg-3 d-flex">
+            <div class="card dash-stat fh-stat-tile flex-fill w-100">
+                <div class="card-body">
+                    <span class="dash-stat-label">Avg rating</span>
+                    <div class="dash-stat-value" id="ov-rating">—</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3 d-flex">
+            <div class="card dash-stat fh-stat-tile flex-fill w-100">
+                <div class="card-body">
+                    <span class="dash-stat-label">My bids</span>
+                    <div class="dash-stat-value" id="ov-bids">—</div>
+                    <a href="{{ url_for('dashboard.freelancer_bids') }}" class="small stretched-link">All bids →</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3 d-flex">
+            <div class="card dash-stat fh-stat-tile flex-fill w-100">
+                <div class="card-body">
+                    <span class="dash-stat-label">Projects done</span>
+                    <div class="dash-stat-value" id="ov-projects">—</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-lg-3 d-flex">
+            <div class="card dash-stat fh-stat-tile flex-fill w-100 dash-card--accent">
+                <div class="card-body">
+                    <span class="dash-stat-label">AI matches</span>
+                    <div class="dash-stat-value text-fh-primary" id="ov-reco-count">—</div>
+                    <a href="{{ url_for('dashboard.freelancer_recommended') }}" class="small stretched-link">Open →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row g-4 align-items-stretch">
+        <div class="col-lg-6 d-flex">
+            <div class="card dash-card fh-panel-tile flex-fill w-100">
+                <div class="card-header bg-white border-0 d-flex justify-content-between">
+                    <h2 class="h6 mb-0">Recent bids</h2>
+                    <a href="{{ url_for('dashboard.freelancer_bids_recent') }}" class="small">View all</a>
+                </div>
+                <div class="card-body" id="ov-recent-bids">Loading…</div>
+            </div>
+        </div>
+        <div class="col-lg-6 d-flex">
+            <div class="card dash-card fh-panel-tile flex-fill w-100 dash-card--accent">
+                <div class="card-header bg-white border-0 d-flex justify-content-between">
+                    <h2 class="h6 mb-0"><i class="fas fa-wand-magic-sparkles text-fh-primary me-1"></i>Recommended for you</h2>
+                    <a href="{{ url_for('dashboard.freelancer_recommended') }}" class="small">Full list</a>
+                </div>
+                <div class="card-body" id="ov-reco-preview">Loading…</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { FreelancerDash.overview(); });</script>
+{% endblock %}

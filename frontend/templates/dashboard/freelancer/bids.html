@@ -1,0 +1,23 @@
+{% extends "dashboard/base_freelancer.html" %}
+{% block dashboard_title %}My Bids · FreelanceHub{% endblock %}
+{% block page_heading %}My Bids{% endblock %}
+{% block page_sub %}Every proposal you have submitted and its current status.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="card dash-card">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0" id="tbl-bids">
+                    <thead class="table-light">
+                        <tr><th>Project</th><th>Amount</th><th>Status</th><th>Submitted</th><th>Proposal</th></tr>
+                    </thead>
+                    <tbody><tr><td colspan="5" class="p-4 text-muted">Loading…</td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { FreelancerDash.bidsAll(); });</script>
+{% endblock %}

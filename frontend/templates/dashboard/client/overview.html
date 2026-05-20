@@ -1,0 +1,54 @@
+{% extends "dashboard/base_client.html" %}
+{% block dashboard_title %}Client overview · FreelanceHub{% endblock %}
+{% block page_heading %}Overview{% endblock %}
+{% block page_sub %}Track your hiring pipeline at a glance.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-xl-4 d-flex">
+            <div class="card dash-stat fh-stat-tile flex-fill w-100">
+                <div class="card-body">
+                    <span class="dash-stat-label">Total projects</span>
+                    <div class="dash-stat-value" id="stat-total">—</div>
+                    <a href="{{ url_for('dashboard.client_projects_total') }}" class="small stretched-link text-decoration-none">View all →</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-4 d-flex">
+            <div class="card dash-stat fh-stat-tile flex-fill w-100">
+                <div class="card-body">
+                    <span class="dash-stat-label">Active & open</span>
+                    <div class="dash-stat-value" id="stat-active">—</div>
+                    <a href="{{ url_for('dashboard.client_projects_active') }}" class="small stretched-link text-decoration-none">Active list →</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-4 d-flex">
+            <div class="card dash-stat fh-stat-tile flex-fill w-100">
+                <div class="card-body">
+                    <span class="dash-stat-label">Completed</span>
+                    <div class="dash-stat-value" id="stat-completed">—</div>
+                    <a href="{{ url_for('dashboard.client_projects_completed') }}" class="small stretched-link text-decoration-none">Archive →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card dash-card">
+        <div class="card-header d-flex justify-content-between align-items-center bg-white border-0 pb-0">
+            <h2 class="h5 mb-0">Recent activity</h2>
+            <a href="{{ url_for('dashboard.client_my_projects') }}" class="btn btn-sm btn-outline-fh">My Projects hub</a>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0" id="tbl-recent">
+                    <thead class="table-light"><tr><th>Project</th><th>Status</th><th>Bids</th><th></th></tr></thead>
+                    <tbody><tr><td colspan="4" class="text-muted">Loading…</td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { ClientDash.overview(); });</script>
+{% endblock %}

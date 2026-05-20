@@ -1,0 +1,36 @@
+# Virtual environments — never commit
+venv/
+.venv/
+env/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+
+# Flask
+instance/
+.webassets-cache
+
+# Local DB & uploads
+*.db
+*.sqlite
+*.sqlite3
+uploads/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log

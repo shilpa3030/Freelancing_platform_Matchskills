@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bgc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E3F2FD"/>
+      <stop offset="100%" stop-color="#FFF3E0"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1E88E5"/>
+      <stop offset="100%" stop-color="#FF7F2A"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="320" rx="24" fill="url(#bgc)"/>
+  <rect x="48" y="200" width="304" height="88" rx="16" fill="#fff" opacity="0.9" filter="drop-shadow(0 8px 24px rgba(30,136,229,0.12))"/>
+  <rect x="72" y="224" width="120" height="12" rx="6" fill="#E0E0E0"/>
+  <rect x="72" y="248" width="200" height="8" rx="4" fill="#EEEEEE"/>
+  <circle cx="200" cy="112" r="48" fill="#1565C0" opacity="0.9"/>
+  <path d="M200 168c-52 0-88 28-88 64h176c0-36-36-64-88-64z" fill="#1E88E5"/>
+  <rect x="260" y="72" width="88" height="64" rx="12" fill="#fff" stroke="url(#acc)" stroke-width="3"/>
+  <path d="M276 104h56M276 120h40" stroke="#1E88E5" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="332" cy="92" r="8" fill="#FF7F2A"/>
+</svg>

@@ -1,0 +1,42 @@
+{% extends "dashboard/base_client.html" %}
+{% block dashboard_title %}Profile · FreelanceHub{% endblock %}
+{% block page_heading %}Company profile{% endblock %}
+{% block page_sub %}Details visible to freelancers when they review your projects.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="row g-4 align-items-stretch">
+        <div class="col-lg-4 d-flex">
+            <div class="fh-profile-hero flex-fill w-100 d-flex flex-column">
+                <div class="d-flex flex-column flex-grow-1">
+                    <img src="{{ url_for('static', filename='img/client.jpg') }}" alt="" class="profile-hero-visual mb-3" width="120" height="120" loading="lazy">
+                    <p class="small text-white-50 mb-1">Signed in as</p>
+                    <p class="fw-semibold mb-3" id="client-email">—</p>
+                    <p class="small text-white-50 mb-1">Verification</p>
+                    <p class="mb-0" id="client-verified">—</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 d-flex">
+            <div class="card dash-card flex-fill w-100">
+                <div class="card-body">
+                    <h2 class="h6 mb-3">Edit profile</h2>
+                    <form id="formClientProfile">
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold" for="companyName">Company name</label>
+                            <input type="text" class="form-control" id="companyName" required maxlength="200" autocomplete="organization">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold" for="companyDesc">Description</label>
+                            <textarea class="form-control" id="companyDesc" rows="5" placeholder="What does your company do?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-fh">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { ClientDash.profilePage(); });</script>
+{% endblock %}

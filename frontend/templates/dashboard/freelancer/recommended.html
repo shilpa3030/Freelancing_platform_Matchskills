@@ -1,0 +1,14 @@
+{% extends "dashboard/base_freelancer.html" %}
+{% block dashboard_title %}AI Recommended · FreelanceHub{% endblock %}
+{% block page_heading %}Recommended Projects{% endblock %}
+{% block page_sub %}Matched to your skills and profile using TF‑IDF similarity — our built-in AI layer.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="row g-4" id="reco-grid">
+        <div class="col-12 text-muted">Loading recommendations…</div>
+    </div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { FreelancerDash.recommended(); });</script>
+{% endblock %}

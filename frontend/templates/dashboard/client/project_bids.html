@@ -1,0 +1,16 @@
+{% extends "dashboard/base_client.html" %}
+{% block dashboard_title %}Project bids · FreelanceHub{% endblock %}
+{% block page_heading %}Bids{% endblock %}
+{% block page_sub %}Review proposals and award the project to the best freelancer.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="d-flex flex-wrap align-items-center gap-2 mb-4">
+        <a href="{{ url_for('dashboard.client_my_projects') }}" class="btn btn-outline-secondary btn-sm"><i class="fas fa-arrow-left me-1"></i>Back to My Projects</a>
+        <h2 class="h5 mb-0 ms-md-2" id="project-bids-title">Project</h2>
+    </div>
+    <div id="bids-container"><p class="text-muted">Loading bids…</p></div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { ClientDash.projectBids({{ project_id }}); });</script>
+{% endblock %}

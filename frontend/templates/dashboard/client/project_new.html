@@ -1,0 +1,56 @@
+{% extends "dashboard/base_client.html" %}
+{% block dashboard_title %}Post Project · FreelanceHub{% endblock %}
+{% block page_heading %}Post a new project{% endblock %}
+{% block page_sub %}Describe the work, budget, and skills so freelancers can respond with accurate bids.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card dash-card">
+                <div class="card-body p-4">
+                    <form id="formNewProject">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="projectTitle">Title</label>
+                            <input type="text" class="form-control form-control-lg" id="projectTitle" required placeholder="e.g. Build a customer portal">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="projectDescription">Description</label>
+                            <textarea class="form-control" id="projectDescription" rows="6" required placeholder="Scope, deliverables, timeline expectations…"></textarea>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="budgetMin">Min budget (₹)</label>
+                                <input type="number" class="form-control" id="budgetMin" required min="0" step="100">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="budgetMax">Max budget (₹)</label>
+                                <input type="number" class="form-control" id="budgetMax" required min="0" step="100">
+                            </div>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label" for="requiredSkills">Required skills</label>
+                            <input type="text" class="form-control" id="requiredSkills" placeholder="Comma separated, e.g. Python, React, Figma">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="projectCategory">Category</label>
+                            <select class="form-select" id="projectCategory">
+                                <option>Web Development</option>
+                                <option>Mobile App</option>
+                                <option>Data Science</option>
+                                <option>Machine Learning</option>
+                                <option>Design</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-fh btn-lg">Publish project</button>
+                        <a href="{{ url_for('dashboard.client_my_projects') }}" class="btn btn-link">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { ClientDash.projectNew(); });</script>
+{% endblock %}

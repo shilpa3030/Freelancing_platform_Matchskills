@@ -1,0 +1,42 @@
+<aside class="dash-sidebar" id="dashSidebar">
+    <div class="dash-sidebar-brand">
+        <a href="{{ url_for('index') }}" class="text-white text-decoration-none d-flex align-items-center gap-2 font-heading">
+            <img src="{{ url_for('static', filename='img/logo.png') }}" width="32" height="32" alt="FreelanceHub">
+            <span>FreelanceHub</span>
+        </a>
+        <span class="dash-role-pill dash-role-freelancer">Freelancer</span>
+    </div>
+    <nav class="dash-nav flex-column">
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_overview') }}">
+            <i class="fas fa-gauge-high"></i> Overview
+        </a>
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer/profile' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_profile') }}">
+            <i class="fas fa-user"></i> Profile
+        </a>
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer/messages' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_messages') }}">
+            <i class="fas fa-comments"></i> Messages
+        </a>
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer/projects' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_projects_total') }}">
+            <i class="fas fa-globe"></i> Total Projects
+        </a>
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer/recommended' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_recommended') }}">
+            <i class="fas fa-wand-magic-sparkles"></i> AI Recommended
+        </a>
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer/bids' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_bids') }}">
+            <i class="fas fa-file-signature"></i> My Bids
+        </a>
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer/bids/recent' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_bids_recent') }}">
+            <i class="fas fa-clock-rotate-left"></i> Recent Bids
+        </a>
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer/rating' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_rating') }}">
+            <i class="fas fa-star-half-stroke"></i> Average Rating
+        </a>
+        <a class="dash-nav-link {% if request.path == '/dashboard/freelancer/reviews' %}active{% endif %}" href="{{ url_for('dashboard.freelancer_reviews') }}">
+            <i class="fas fa-comments"></i> All Reviews
+        </a>
+    </nav>
+    <div class="dash-sidebar-footer">
+        <a href="{{ url_for('index') }}" class="dash-nav-link subtle"><i class="fas fa-house"></i> Home</a>
+        <a href="#" class="dash-nav-link subtle" id="freelancerLogout"><i class="fas fa-right-from-bracket"></i> Log out</a>
+    </div>
+</aside>

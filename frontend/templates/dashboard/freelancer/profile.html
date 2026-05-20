@@ -1,0 +1,87 @@
+{% extends "dashboard/base_freelancer.html" %}
+{% block dashboard_title %}Profile · FreelanceHub{% endblock %}
+{% block page_heading %}Freelancer profile{% endblock %}
+{% block page_sub %}Improve your bio and skills for better AI matching and client trust.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="row g-4 align-items-stretch">
+        <div class="col-lg-4 d-flex">
+            <div class="fh-profile-hero flex-fill w-100 d-flex flex-column">
+                <div class="d-flex flex-column flex-grow-1">
+                    <img src="{{ url_for('static', filename='img/developer.png') }}" alt="" class="profile-hero-visual mb-3" width="120" height="120" loading="lazy">
+                    <p class="small text-white-50 mb-1">Signed in as</p>
+                    <p class="fw-semibold mb-2" id="fl-email">—</p>
+                    <p class="small text-white-50 mb-1">Platform stats</p>
+                    <p class="small mb-0"><span id="fl-avg">—</span> avg rating · <span id="fl-done">—</span> projects ·
+                        <span id="fl-approved" class="badge bg-light text-dark ms-1">—</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 d-flex flex-column gap-4">
+            <div class="card dash-card">
+                <div class="card-body">
+                    <h2 class="h6 mb-3">Profile details</h2>
+                    <form id="formFreelancerProfile">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold" for="fl-name">Full name</label>
+                                <input type="text" class="form-control" id="fl-name" required maxlength="100">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold" for="fl-year">Year</label>
+                                <input type="text" class="form-control" id="fl-year" maxlength="20" placeholder="e.g. 3rd Year">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-semibold" for="fl-college">College / University</label>
+                                <input type="text" class="form-control" id="fl-college" maxlength="200">
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-semibold" for="fl-bio">Bio</label>
+                                <textarea class="form-control" id="fl-bio" rows="4" placeholder="Experience, focus areas, tools you use…"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label small fw-semibold" for="fl-portfolio">Portfolio URL</label>
+                                <input type="url" class="form-control" id="fl-portfolio" maxlength="300" placeholder="https://">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-fh mt-3">Save profile</button>
+                    </form>
+                    <hr class="my-4">
+                    <h3 class="h6 mb-2">Resume</h3>
+                    <p class="small text-muted mb-3">Upload PDF, DOC, or DOCX (max 16 MB). Clients see this when they consider your bids.</p>
+                    <p class="small mb-2" id="fl-resume-status"><span class="text-muted">No file uploaded.</span></p>
+                    <div class="d-flex flex-wrap gap-2 align-items-center">
+                        <input type="file" class="form-control form-control-sm" id="fl-resume-file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="max-width: 280px;">
+                        <button type="button" class="btn btn-outline-fh btn-sm" id="fl-resume-upload">Upload</button>
+                        <a href="#" class="btn btn-outline-secondary btn-sm d-none" id="fl-resume-download">Download</a>
+                        <button type="button" class="btn btn-outline-danger btn-sm d-none" id="fl-resume-remove">Remove</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card dash-card">
+                <div class="card-body">
+                    <h2 class="h6 mb-2">Skills</h2>
+                    <p class="small text-muted mb-3">Skills power AI recommendations. Add technologies you are confident with.</p>
+                    <div id="fl-skills" class="mb-3">—</div>
+                    <form id="formAddSkill" class="row g-2 align-items-end">
+                        <div class="col-md-5">
+                            <label class="form-label small mb-0" for="skillName">Skill name</label>
+                            <input type="text" class="form-control form-control-sm" id="skillName" required placeholder="e.g. React">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label small mb-0" for="skillProf">Proficiency 1–5</label>
+                            <input type="number" class="form-control form-control-sm" id="skillProf" min="1" max="5" value="3">
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-outline-fh btn-sm w-100">Add skill</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { FreelancerDash.profilePage(); });</script>
+{% endblock %}

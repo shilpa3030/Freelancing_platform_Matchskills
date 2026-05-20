@@ -1,0 +1,23 @@
+{% extends "dashboard/base_freelancer.html" %}
+{% block dashboard_title %}All Reviews · FreelanceHub{% endblock %}
+{% block page_heading %}Total Ratings & Reviews{% endblock %}
+{% block page_sub %}Full history of feedback from clients.{% endblock %}
+{% block dashboard_main %}
+<div class="container-fluid py-4">
+    <div class="card dash-card">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0" id="tbl-reviews">
+                    <thead class="table-light">
+                        <tr><th>Project</th><th>Rating</th><th>Comment</th><th>From</th><th>Date</th></tr>
+                    </thead>
+                    <tbody><tr><td colspan="5" class="p-4 text-muted">Loading…</td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block dashboard_scripts %}
+<script>document.addEventListener('DOMContentLoaded', function () { FreelancerDash.reviewsPage(); });</script>
+{% endblock %}

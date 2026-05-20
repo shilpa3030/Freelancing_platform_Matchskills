@@ -1,0 +1,78 @@
+# ——— Python ———
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+pip-wheel-metadata/
+
+# Virtual environments (anywhere in the repo)
+.venv/
+venv/
+env/
+ENV/
+
+# Backend Python env — never push this to GitHub (large, machine-specific)
+backend/venv/
+backend/.venv/
+
+# Test / type / coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+*.cover
+.hypothesis/
+
+# ——— Flask ———
+instance/
+.webassets-cache
+
+# ——— Databases (local / dev SQLite) ———
+*.db
+*.sqlite
+*.sqlite3
+
+# ——— Environment & secrets ———
+.env
+.env.*
+!.env.example
+
+# ——— User uploads (resumes, etc.) ———
+# Do not use blanket *.pdf / *.doc / *.docx — those hide real project files.
+backend/uploads/
+
+# ——— Node (if you add a JS toolchain) ———
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ——— IDE & editors ———
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ——— OS ———
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ——— Logs ———
+*.log
+logs/
+
+# ——— Alembic / Flask-Migrate ———
+# Commit migration scripts under backend/migrations/ (or your chosen path).
+# Do not ignore migrations/versions/ unless you explicitly do not use DB migrations.
