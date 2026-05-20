@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # FreelanceHub - AI-Powered Freelancing Platform
 
 A comprehensive freelancing platform built with Flask (Python) backend and vanilla JavaScript frontend, featuring AI-powered recommendations, real-time chat, and secure escrow payments.
@@ -328,3 +329,6 @@ For issues and questions, please create an issue in the repository.
 ---
 
 **Note**: This is a demonstration project. For production use, implement additional security measures, comprehensive testing, and proper deployment configuration.
+=======
+# Matchskills_Freelancing_platform
+>>>>>>> ed437d344aac176e77a7606a2fb559b21bd4cbb3
